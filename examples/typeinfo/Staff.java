@@ -2,14 +2,18 @@
 import java.util.*;
 
 public class Staff extends ArrayList<Position> {
+  //增加职位与员工
   public void add(String title, Person person) {
     add(new Position(title, person));
   }
+  //增加多个职位
   public void add(String... titles) {
     for(String title : titles)
       add(new Position(title));
   }
+  构造函数，增加职位
   public Staff(String... titles) { add(titles); }
+  //查询是职位是否空缺
   public boolean positionAvailable(String title) {
     for(Position position : this)
       if(position.getTitle().equals(title) &&
@@ -17,6 +21,7 @@ public class Staff extends ArrayList<Position> {
         return true;
     return false;
   }	
+  //将某人放入职位
   public void fillPosition(String title, Person hire) {
     for(Position position : this)
       if(position.getTitle().equals(title) &&
